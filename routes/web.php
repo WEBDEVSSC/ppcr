@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ParametroController;
 use App\Http\Controllers\RegistroController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
  // Ruta para guardar los datos del formulario
  Route::post('admin/storeRegistro',[RegistroController::class,'storeRegistro'])->name('storeRegistro');
+
+ /**
+ * 
+ * 
+ * RUTAS DE REGISTRO
+ * 
+ * 
+ */
+
+  // Ruta para mostrar todos los registros
+  Route::get('admin/indexParametro',[ParametroController::class,'indexParametro'])->name('indexParametro');

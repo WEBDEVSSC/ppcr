@@ -314,6 +314,11 @@ return [
             'url' => 'admin/indexRegistro',
             'icon' => 'far fa-fw fa-file',
         ],
+        [
+            'text' => 'Parametros',
+            'url' => 'admin/indexParametro',
+            'icon' => 'far fa-fw fa-file',
+        ],
     ],
 
     /*
