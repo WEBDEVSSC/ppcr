@@ -315,6 +315,11 @@ return [
             'icon' => 'far fa-fw fa-file',
         ],
         [
+            'text' => 'Usuarios',
+            'url' => 'admin/indexUsuario',
+            'icon' => 'far fa-fw fa-file',
+        ],
+        [
             'text' => 'Parametros',
             'url' => 'admin/indexParametro',
             'icon' => 'far fa-fw fa-file',
