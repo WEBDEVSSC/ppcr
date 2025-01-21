@@ -40,8 +40,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
  * 
  */
 
+  // Ruta para mostrar el formulario de registro de parametro
+  Route::get('admin/createParametro',[ParametroController::class,'createParametro'])->name('createParametro');
+
+  // Ruta para almacenar los datos
+  Route::post('admin/storeParametro',[ParametroController::class,'storeParametro'])->name('storeParametro');
+
   // Ruta para mostrar todos los registros
   Route::get('admin/indexParametro',[ParametroController::class,'indexParametro'])->name('indexParametro');
+
+  // Ruta para editar los parametros
+  Route::get('admin/editParametro/{id}',[ParametroController::class,'editParametro'])->name('editParametro');
 
   /**
    * 

@@ -5,7 +5,7 @@
 @section('plugins.Sweetalert2', true)
 
 @section('content_header')
-    <h1><strong>Panel de Control</strong></h1>
+    <h1><strong>Parametro</strong> <small>Panel de Control</small></h1>
 @stop
 
 @section('content')
@@ -29,7 +29,7 @@
 
     <div class="card card-info card-outline">
         <div class="card-header">
-
+            <a href="{{ route('createParametro') }}" class="btn btn-info btn-sm">NUEVO REGISTRO</a>
         </div>
         <div class="card-body">
 
@@ -39,7 +39,7 @@
                     <thead>
                         <tr>
                             <th>AÑO</th>
-                            <th>META ANUAL</th>   {{-- Asegúrate de que estos campos coincidan con los de tu modelo --}}
+                            <th>META ANUAL</th>
                             <th>META J1</th>
                             <th>META J2</th>
                             <th>META J3</th>
@@ -48,22 +48,27 @@
                             <th>META J6</th>
                             <th>META J7</th>
                             <th>META J8</th>
-                            
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($parametros as $parametro)
                             <tr>
-                                <td>{{ $parametro->anio }}</td>  {{-- Suponiendo que tienes un campo id --}}
-                                <td>{{ $parametro->meta_anual }}</td>  {{-- Cambia 'nombre' por el campo que tengas --}}
-                                <td>{{ $parametro->meta_j1 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j2 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j3 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j4 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j5 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j6 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j7 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $parametro->meta_j8 }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
+                                <td>{{ $parametro->anio }}</td>
+                                <td>{{ $parametro->meta_anual }}</td>
+                                <td>{{ $parametro->meta_j1 }}</td>
+                                <td>{{ $parametro->meta_j2 }}</td>
+                                <td>{{ $parametro->meta_j3 }}</td> 
+                                <td>{{ $parametro->meta_j4 }}</td> 
+                                <td>{{ $parametro->meta_j5 }}</td>  
+                                <td>{{ $parametro->meta_j6 }}</td>  
+                                <td>{{ $parametro->meta_j7 }}</td>  
+                                <td>{{ $parametro->meta_j8 }}</td>  
+                                <td>
+                                    <a href="{{ route('editParametro', $parametro->id) }}">
+                                        EDITAR
+                                    </a>
+                                </td>  
                             </tr>
                         @endforeach
                     </tbody>

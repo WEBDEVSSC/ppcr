@@ -5,18 +5,17 @@
 @section('plugins.Chartjs', true)
 
 @section('content_header')
-    <h1><strong>Dashboard {{$anioActual}}</strong></h1>
+    <h1><strong>Programa de Prevención y Control de Rabia</strong> <small>Dashboard {{$anioActual}}</small></h1>
 @stop
 
 @section('content')
 
 <!-- ---------------------------------------------------------------------- -->
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="small-box bg-purple">
             <div class="inner">
-              <h3>{{$parametro->meta_anual}}</h3>
-
+              <h3>{{$parametro->meta_anual ?? 'Valor no disponible'}}</h3>
               <p>Meta Anual</p>
             </div>
             <div class="icon">
@@ -24,7 +23,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="small-box bg-purple">
             <div class="inner">
               <h3>{{$contadorRegistros}}</h3>
@@ -36,11 +35,10 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
         <div class="small-box bg-purple">
             <div class="inner">
-                <h3>{{ number_format(($contadorRegistros / $parametro->meta_anual) * 100, 2) }}%</h3>
-
+                <h3>{{ isset($parametro->meta_anual) && $parametro->meta_anual > 0 ? number_format(($contadorRegistros / $parametro->meta_anual) * 100, 2) : 'Valor no disponible' }}%</h3>
               <p>Porcentaje</p>
             </div>
             <div class="icon">
@@ -52,15 +50,15 @@
 
 <!-- ---------------------------------------------------------------------- -->
 
-    <div class="progress mb-3">
-        <div class="progress-bar bg-purple" role="progressbar" 
-             aria-valuenow="{{ $contadorRegistros }}" 
-             aria-valuemin="0" 
-             aria-valuemax="{{ $parametro->meta_anual }}" 
-             style="width: {{ ($contadorRegistros / $parametro->meta_anual) * 100 }}%">
-            <span class="sr-only">{{ ($contadorRegistros / $parametro->meta_anual) * 100 }}% Complete</span>
-        </div>
-    </div>
+<div class="progress mb-3">
+  <div class="progress-bar bg-purple" role="progressbar" 
+       aria-valuenow="{{ $contadorRegistros }}" 
+       aria-valuemin="0" 
+       aria-valuemax="{{ $parametro?->meta_anual ?? 100 }}" 
+       style="width: {{ ($contadorRegistros / ($parametro?->meta_anual ?? 1)) * 100 }}%">
+      <span class="sr-only">{{ ($contadorRegistros / ($parametro?->meta_anual ?? 1)) * 100 }}% Complete</span>
+  </div>
+</div>
 
 <!-- ---------------------------------------------------------------------- -->
 
@@ -82,7 +80,7 @@
               <tbody>
                 <tr>
                   <td>1. Piedras Negras</td>
-                  <td>{{$parametro->meta_j1}}</td>
+                  <td>{{$parametro->meta_j1 ?? 'Valor no disponible'}}</td>
                   <td>{{$contadorRegistrosDelAnioJ1}}</td>
                   <td>
                     <div class="progress progress-xs">
@@ -93,7 +91,7 @@
                 </tr>
                 <tr>
                   <td>2. Acuña</td>
-                  <td>{{$parametro->meta_j2}}</td>
+                  <td>{{$parametro->meta_j2 ?? 'Valor no disponible'}}</td>
                   <td>{{$contadorRegistrosDelAnioJ2}}</td>
                   <td>
                     <div class="progress progress-xs">
@@ -104,7 +102,7 @@
                 </tr>
                 <tr>
                   <td>3. Sabinas</td>
-                  <td>{{$parametro->meta_j3}}</td>
+                  <td>{{$parametro->meta_j3 ?? 'Valor no disponible'}}</td>
                   <td>{{$contadorRegistrosDelAnioJ3}}</td>
                   <td>
                     <div class="progress progress-xs progress-striped active">
@@ -115,7 +113,7 @@
                 </tr>
                 <tr>
                   <td>4. Cuatro Cienegas</td>
-                  <td>{{$parametro->meta_j4}}</td>
+                  <td>{{$parametro->meta_j4 ?? 'Valor no disponible'}}</td>
                   <td>{{$contadorRegistrosDelAnioJ4}}</td>
                   <td>
                     <div class="progress progress-xs progress-striped active">
@@ -126,7 +124,7 @@
                 </tr>
                 <tr>
                     <td>5. Cuatro Cienegas</td>
-                    <td>{{$parametro->meta_j5}}</td>
+                    <td>{{$parametro->meta_j5 ?? 'Valor no disponible'}}</td>
                     <td>{{$contadorRegistrosDelAnioJ5}}</td>
                     <td>
                       <div class="progress progress-xs progress-striped active">
@@ -137,7 +135,7 @@
                   </tr>
                   <tr>
                     <td>6. Cuatro Cienegas</td>
-                    <td>{{$parametro->meta_j6}}</td>
+                    <td>{{$parametro->meta_j6 ?? 'Valor no disponible'}}</td>
                     <td>{{$contadorRegistrosDelAnioJ6}}</td>
                     <td>
                       <div class="progress progress-xs progress-striped active">
@@ -148,7 +146,7 @@
                   </tr>
                   <tr>
                     <td>7. Cuatro Cienegas</td>
-                    <td>{{$parametro->meta_j7}}</td>
+                    <td>{{$parametro->meta_j7 ?? 'Valor no disponible'}}</td>
                     <td>{{$contadorRegistrosDelAnioJ7}}</td>
                     <td>
                       <div class="progress progress-xs progress-striped active">
@@ -159,7 +157,7 @@
                   </tr>
                   <tr>
                     <td>8. Saltillo</td>
-                    <td>{{$parametro->meta_j8}}</td>
+                    <td>{{$parametro->meta_j8 ?? 'Valor no disponible'}}</td>
                     <td>{{$contadorRegistrosDelAnioJ8}}</td>
                     <td>
                       <div class="progress progress-xs progress-striped active">
