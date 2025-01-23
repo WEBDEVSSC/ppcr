@@ -65,7 +65,7 @@
                                 <td>{{ $parametro->meta_j7 }}</td>  
                                 <td>{{ $parametro->meta_j8 }}</td>  
                                 <td>
-                                    <a href="{{ route('editParametro', $parametro->id) }}">
+                                    <a class='btn btn-info btn-sm btn-block' href="{{ route('editParametro', $parametro->id) }}">
                                         EDITAR
                                     </a>
                                 </td>  
