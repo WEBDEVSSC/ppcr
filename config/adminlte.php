@@ -64,7 +64,7 @@ return [
     */
 
     'logo' => '<b>P.P.C.R.</b> Coah',
-    'logo_img' => 'vendor/adminlte/dist/img/SS-Blanco.png',
+    'logo_img' => 'img/SS-Blanco.png',
     'logo_img_class' => 'brand-image ',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -171,12 +171,12 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-info',
+    'classes_auth_card' => 'card-outline card-purple',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => 'd-none',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-info',
+    'classes_auth_btn' => 'btn-flat btn-dark',
 
     /*
     |--------------------------------------------------------------------------
