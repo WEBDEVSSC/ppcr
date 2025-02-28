@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parametro;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ParametroController extends Controller
