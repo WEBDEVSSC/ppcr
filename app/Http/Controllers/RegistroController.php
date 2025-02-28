@@ -40,29 +40,30 @@ class RegistroController extends Controller
         // Validamos los datos
         $validated = $request->validate([
             'propietario' => 'required|string|max:255',
+            'domicilio' => 'required|string|max:512',
             'especie' => 'required|string|max:255',
             'sexo' => 'required|string|max:255',
             'edad' => 'required|string|max:255',
             'nombre_mascota' => 'required|string|max:255',
             'dosis' => 'required|string|max:255',
+            'folio' => 'required|string|max:255',
         ],[
             'propietario.required' => 'El campo es requerido',
+            'domicilio.required' => 'El campo es requerido',
+            'domicilio.max' => 'El texto es demasiado grande',
             'especie.required' => 'El campo es requerido',
             'sexo.required' => 'El campo es requerido',
             'edad.required' => 'El campo es requerido',
             'nombre_mascota.required' => 'El campo es requerido',
             'dosis.required' => 'El campo es requerido',
+            'folio.required' => 'El campo es requerido',
         ]);
-
-        // Generamos el folio
-        $folio = 213290;
 
         // Capturamos los datos del usuario que inicio sesion
         $usuario = Auth::user();
 
         $registro = new Registro();
-
-        $registro->folio = $folio;
+        
         $registro->unidad = $usuario->unidad;
         $registro->clues = $usuario->clues;
         $registro->jurisdiccion = $usuario->jurisdiccion;
@@ -70,11 +71,13 @@ class RegistroController extends Controller
         $registro->municipio = $usuario->municipio;
 
         $registro->propietario = $request->propietario;
+        $registro->domicilio = $request->domicilio;
         $registro->especie = $request->especie;
         $registro->sexo = $request->sexo;
         $registro->edad = $request->edad;
         $registro->nombre_mascota = $request->nombre_mascota;
         $registro->dosis = $request->dosis;
+        $registro->folio = $request->folio;
 
         $registro->vacunador_id = $usuario->id;
         $registro->vacunador_nombre = $usuario->name;

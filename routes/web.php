@@ -59,6 +59,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
   // Ruta para editar los parametros
   Route::get('admin/editParametro/{id}',[ParametroController::class,'editParametro'])->name('editParametro');
 
+  // Ruta para actualziar los parametros
+  Route::put('admin/updateParametro/{id}',[ParametroController::class, 'updateParametro'])->name('updateParametro');
+
   /**
    * 
    * 

@@ -25,6 +25,19 @@
 </script>
 @endif
 
+@if(session('update'))
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            title: '¡Registro actualizado! ',
+            text: "{{ session('update') }}",
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        });
+    });
+</script>
+@endif
+
 <!-- ---------------------------------------------------------------- -->
 
     <div class="card card-info card-outline">

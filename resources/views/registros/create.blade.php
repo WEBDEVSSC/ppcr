@@ -22,6 +22,12 @@
                 <div class="col-md-3">
                     <p><strong>Propietario</strong></p>
                     <input type="text" name="propietario" id="propietario" class="form-control">
+                    @error('propietario')<br><p class="text-danger">{{ $message }}</p>@enderror
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Domicilio</strong></p>
+                    <input type="text" name="propietario" id="domicilio" class="form-control">
+                    @error('domicilio')<br><p class="text-danger">{{ $message }}</p>@enderror
                 </div>
                 <div class="col-md-3">
                     <p><strong>Especie</strong></p>
@@ -31,6 +37,10 @@
                         <option value="FELINA">FELINA</option>
                     </select>
                 </div>
+                
+            </div>
+
+            <div class="row mt-3">
                 <div class="col-md-3">
                     <p><strong>Sexo</strong></p>
                     <select name="sexo" id="sexo" class="form-control">
@@ -60,9 +70,6 @@
                         <option value="15">15</option>
                     </select>
                 </div>
-            </div>
-
-            <div class="row mt-3">
                 <div class="col-md-3">
                     <p><strong>Nombre de la mascota</strong></p>
                     <input type="text" name="nombre_mascota" id="nombre_mascota" class="form-control">
@@ -83,7 +90,19 @@
                         <option value="10">10</option>
                     </select>
                 </div>
+                
             </div>
+
+            <!-- -------------------------------------------- -->
+
+            <div class="row mt-3">
+                <div class="col-md-3">
+                    <p><strong>Folio</strong></p>
+                    <input type="text" name="folio" id="folio" class="form-control">
+                </div>
+            </div>
+
+            <!-- -------------------------------------------- -->
 
         </div>
         <div class="card-footer">

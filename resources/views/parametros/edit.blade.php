@@ -8,9 +8,11 @@
 
 @section('content')
 
-    <form action="{{ route('storeParametro') }}" method="POST">
+    <form action="{{ route('updateParametro', $parametro->id) }}" method="POST">
     
     @csrf
+
+    @method('PUT')
 
     <div class="card card-info card-outline">
         <div class="card-header">
@@ -21,7 +23,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <p><strong>Año</strong></p>
-                    <input type="number" name="anio" id="anio" class="form-control" value="{{ old('anio', $parametro->anio) }}">
+                    <input type="number" name="anio" id="anio" class="form-control" value="{{ old('anio', $parametro->anio) }}" disabled>
                     @error('anio')<br><p class="text-danger">{{ $message }}</p>@enderror
                 </div>
                 <div class="col-md-6">

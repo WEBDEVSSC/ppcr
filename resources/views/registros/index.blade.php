@@ -39,23 +39,25 @@
                     <thead>
                         <tr>
                             <th>PROPIETARIO</th>
-                            <th>ESPECIE</th>   {{-- Asegúrate de que estos campos coincidan con los de tu modelo --}}
+                            <th>ESPECIE</th>
                             <th>SEXO</th>
                             <th>EDAD</th>
                             <th>MASCOTA</th>
                             <th>DOSIS</th>
+                            <th>FOLIO</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($registros as $registro)
                             <tr>
-                                <td>{{ $registro->propietario }}</td>  {{-- Suponiendo que tienes un campo id --}}
-                                <td>{{ $registro->especie }}</td>  {{-- Cambia 'nombre' por el campo que tengas --}}
-                                <td>{{ $registro->sexo }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $registro->edad }} años</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $registro->nombre_mascota }}</td>  {{-- Cambia 'email' por el campo que tengas --}} 
-                                <td>{{ $registro->dosis }} °</td>  {{-- Cambia 'email' por el campo que tengas --}} 
+                                <td>{{ $registro->propietario }}</td>
+                                <td>{{ $registro->especie }}</td>
+                                <td>{{ $registro->sexo }}</td>
+                                <td>{{ $registro->edad }} años</td>
+                                <td>{{ $registro->nombre_mascota }}</td>
+                                <td>{{ $registro->dosis }} °</td>
+                                <td>{{ $registro->folio }}</td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -112,7 +112,7 @@
                   <td><span class="badge bg-purple">{{round($porcentajeJ3)}}%</span></td>
                 </tr>
                 <tr>
-                  <td>4. Cuatro Cienegas</td>
+                  <td>4. Monclova</td>
                   <td>{{$parametro->meta_j4 ?? 'Valor no disponible'}}</td>
                   <td>{{$contadorRegistrosDelAnioJ4}}</td>
                   <td>
@@ -134,7 +134,7 @@
                     <td><span class="badge bg-purple">{{round($porcentajeJ5)}}%</span></td>
                   </tr>
                   <tr>
-                    <td>6. Cuatro Cienegas</td>
+                    <td>6. Torreon</td>
                     <td>{{$parametro->meta_j6 ?? 'Valor no disponible'}}</td>
                     <td>{{$contadorRegistrosDelAnioJ6}}</td>
                     <td>
@@ -145,7 +145,7 @@
                     <td><span class="badge bg-purple">{{round($porcentajeJ6)}}%</span></td>
                   </tr>
                   <tr>
-                    <td>7. Cuatro Cienegas</td>
+                    <td>7. Francisco I. Madero</td>
                     <td>{{$parametro->meta_j7 ?? 'Valor no disponible'}}</td>
                     <td>{{$contadorRegistrosDelAnioJ7}}</td>
                     <td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Parametro;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 
 class ParametroController extends Controller
@@ -92,43 +93,67 @@ class ParametroController extends Controller
        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function updateParametro(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'meta_anual' => 'required|numeric',
+            'metaj1' => 'required|numeric',
+            'metaj2' => 'required|numeric',
+            'metaj3' => 'required|numeric',
+            'metaj4' => 'required|numeric',
+            'metaj5' => 'required|numeric',
+            'metaj6' => 'required|numeric',
+            'metaj7' => 'required|numeric',
+            'metaj8' => 'required|numeric',
+        ],[
+            'meta_anual.required' => 'El campo Meta Anual es obligatorio.',
+            'meta_anual.numeric' => 'El campo Meta Anual debe ser un número.',
+            
+            'metaj1.required' => 'El campo Meta J1 es obligatorio.',
+            'metaj1.numeric' => 'El campo Meta J1 debe ser un número.',
+
+            'metaj2.required' => 'El campo Meta J2 es obligatorio.',
+            'metaj2.numeric' => 'El campo Meta J2 debe ser un número.',
+
+            'metaj3.required' => 'El campo Meta J3 es obligatorio.',
+            'metaj3.numeric' => 'El campo Meta J3 debe ser un número.',
+
+            'metaj4.required' => 'El campo Meta J4 es obligatorio.',
+            'metaj4.numeric' => 'El campo Meta J4 debe ser un número.',
+
+            'metaj5.required' => 'El campo Meta J5 es obligatorio.',
+            'metaj5.numeric' => 'El campo Meta J5 debe ser un número.',
+
+            'metaj6.required' => 'El campo Meta J6 es obligatorio.',
+            'metaj6.numeric' => 'El campo Meta J6 debe ser un número.',
+
+            'metaj7.required' => 'El campo Meta J7 es obligatorio.',
+            'metaj7.numeric' => 'El campo Meta J7 debe ser un número.',
+
+            'metaj8.required' => 'El campo Meta J8 es obligatorio.',
+            'metaj8.numeric' => 'El campo Meta J8 debe ser un número.',
+        ]);
+
+        // Buscamos el registro a actualizar
+        $parametro = Parametro::findOrFail($id);
+
+         // Asignar manualmente los valores
+        $parametro->meta_anual = $request->meta_anual;
+        $parametro->meta_j1 = $request->metaj1;
+        $parametro->meta_j2 = $request->metaj2;
+        $parametro->meta_j3 = $request->metaj3;
+        $parametro->meta_j4 = $request->metaj4;
+        $parametro->meta_j5 = $request->metaj5;
+        $parametro->meta_j6 = $request->metaj6;
+        $parametro->meta_j7 = $request->metaj7;
+        $parametro->meta_j8 = $request->metaj8;
+
+        // Guardar los cambios en la base de datos
+        $parametro->save();
+
+        // Redireccionar con mensaje de éxito
+        return redirect()->route('indexParametro')->with('update', 'Registro actualizado correctamente');
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
 }
